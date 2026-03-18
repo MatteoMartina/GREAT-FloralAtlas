@@ -29,17 +29,17 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 
 /* HEADER */
 .hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-bottom:1px solid #e5e7eb;padding:0 2rem;box-shadow:0 2px 8px rgba(0,0,0,.04);}
-.hdr-in{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px;gap:1.5rem;}
+.hdr-in{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:75px;gap:1.5rem;padding:0;}
 .logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;cursor:pointer;flex-shrink:0;}
 .logo-mark{width:34px;height:34px;flex-shrink:0;}
-.logo-name{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--parchment);letter-spacing:.04em;display:block;line-height:1.2;}
-.logo-sub{font-family:var(--mono);font-size:9px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;display:block;}
+.logo-name{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--parchment);letter-spacing:.04em;display:block;line-height:1.2;}
+.logo-sub{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;display:block;}
 .hdr-nav{display:flex;align-items:center;gap:5px;}
-.nbtn{font-family:var(--mono);font-size:11px;padding:5px 13px;border-radius:20px;border:1px solid transparent;background:transparent;color:var(--parch-dim);cursor:pointer;transition:all .18s var(--ease);}
+.nbtn{font-family:var(--mono);font-size:13px;padding:7px 18px;border-radius:20px;border:1px solid transparent;background:transparent;color:var(--parch-dim);cursor:pointer;transition:all .18s var(--ease);}
 .nbtn:hover{color:var(--parchment);border-color:#e5e7eb;background:#f9fafb;}
 .nbtn.on{color:#fff;border-color:var(--gold);background:var(--gold);}
 .sp-chips{display:flex;gap:4px;}
-.spch{font-family:var(--mono);font-size:9.5px;padding:3px 9px;border-radius:20px;border:1px solid #e5e7eb;color:var(--parch-dim);transition:all .18s;}
+.spch{font-family:var(--mono);font-size:11px;padding:5px 13px;border-radius:20px;border:1px solid #e5e7eb;color:var(--parch-dim);transition:all .18s;}
 .spch.on{border-color:var(--sage);color:var(--sage);background:var(--sage-dim);}
 .spch.soon{opacity:.3;cursor:not-allowed;}
 
@@ -48,42 +48,85 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .page.on{display:block;animation:rise .3s var(--ease);}
 @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
-/* HERO */
-.hero{min-height:calc(100vh - 58px);display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;max-width:100%;margin:0;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 4rem calc(50vw - 660px + 2rem);max-width:760px;margin-left:auto;}
-@media(max-width:1100px){.hero-left{padding:4rem 2rem;max-width:100%;}}
-@media(max-width:768px){.hero{grid-template-columns:1fr;}.hero-right{display:none;}}
-.hero-ey{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;font-weight:600;}
-.hero-ey::before{content:'';width:28px;height:1px;background:var(--sage);}
-.hero-title{font-family:var(--serif);font-size:clamp(48px,5.5vw,76px);font-weight:300;line-height:1.05;color:var(--parchment);margin-bottom:.6rem;}
+/* HERO — editorial */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.hero{
+  min-height:calc(100vh - 58px);
+  display:flex;flex-direction:column;justify-content:flex-start;
+  padding:4rem 2rem 2rem 2rem;
+  max-width:1320px;margin:0 auto;
+  position:relative;
+}
+.hero::after{
+  content:'GREAT';
+  position:absolute;right:0;top:50%;transform:translateY(-50%);
+  font-family:var(--serif);font-size:clamp(160px,17vw,240px);font-weight:300;
+  color:transparent;-webkit-text-stroke:1.5px rgba(217,119,6,.22);
+  pointer-events:none;line-height:1;z-index:-1;letter-spacing:-.02em;
+  user-select:none;
+}
+.hero-content{position:relative;z-index:1;max-width:620px;}
+.hero-ey{
+  font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:1.4rem;
+  display:flex;align-items:center;gap:12px;
+  opacity:0;animation:fadeUp .5s .05s var(--ease) forwards;
+}
+.hero-ey::before{content:'';width:32px;height:1px;background:var(--sage);}
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(58px,7.2vw,106px);
+  font-weight:300;line-height:.96;letter-spacing:-.025em;
+  color:var(--parchment);margin-bottom:2.4rem;
+  opacity:0;animation:fadeUp .65s .12s var(--ease) forwards;
+}
 .hero-title em{font-style:italic;color:var(--gold);}
-.hero-sub{font-family:var(--serif);font-size:clamp(15px,1.6vw,19px);font-weight:300;font-style:italic;color:var(--parch-dim);margin-bottom:2.5rem;}
-.srch-wrap{position:relative;max-width:540px;margin-bottom:1.5rem;}
-.srch-ico{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--parch-dim);pointer-events:none;}
-.srch{width:100%;background:#ffffff;border:2px solid #e5e7eb;border-radius:var(--r-lg);color:var(--parchment);font-family:var(--sans);font-size:15px;padding:13px 90px 13px 44px;outline:none;transition:border-color .2s,box-shadow .2s;}
-.srch::placeholder{color:var(--parch-dim);}
+.hero-divider{width:40px;height:1px;background:var(--gold-line);margin-bottom:1.2rem;opacity:0;animation:fadeUp .5s .25s var(--ease) forwards;}
+.hero-sub{
+  font-family:var(--serif);font-size:clamp(18px,1.8vw,22px);
+  font-weight:300;font-style:italic;color:var(--parch-dim);
+  margin-bottom:2rem;
+  opacity:0;animation:fadeUp .6s .32s var(--ease) forwards;
+}
+.srch-wrap{
+  position:relative;max-width:580px;margin-bottom:1.4rem;
+  opacity:0;animation:fadeUp .6s .42s var(--ease) forwards;
+}
+.srch-ico{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--parch-dim);pointer-events:none;}
+.srch{
+  width:100%;background:#fff;
+  border:1.5px solid #dde3ec;border-radius:3px;
+  color:var(--parchment);font-family:var(--sans);font-size:17px;
+  padding:15px 110px 15px 50px;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.srch::placeholder{color:#b0b8c8;}
 .srch:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
-.srch-btn{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;color:#fff;background:var(--gold);border:none;border-radius:8px;padding:6px 14px;cursor:pointer;transition:background .18s;letter-spacing:.05em;}
-.srch-btn:hover{background:var(--sage);}
-.pills{display:flex;flex-wrap:wrap;gap:5px;}
-.pill{font-family:var(--mono);font-size:10px;padding:4px 12px;border-radius:20px;border:1px solid #e5e7eb;color:var(--parch-dim);cursor:pointer;transition:all .18s var(--ease);background:transparent;}
-.pill:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);}
-.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid #e5e7eb;}
-.hstat-n{font-family:var(--serif);font-size:34px;font-weight:300;color:var(--parchment);line-height:1;display:block;}
-.hstat-l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--parch-dim);text-transform:uppercase;}
-
-/* hero right — botanical illustration panel */
-.hero-right{position:relative;overflow:hidden;background:linear-gradient(135deg,#f8fdf8 0%,#f0f7f4 40%,#faf8f2 100%);}
-.hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 60% 50%,rgba(45,122,111,.06) 0%,transparent 70%);}
-.hero-fw{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
-.hero-ring{position:absolute;width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(217,119,6,.1);animation:ss 40s linear infinite;}
-.hero-ring2{position:absolute;width:380px;height:380px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(45,122,111,.1);animation:ss 28s linear infinite reverse;}
-.hero-ring3{position:absolute;width:260px;height:260px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(217,119,6,.06);animation:ss 60s linear infinite;}
-@keyframes ss{to{transform:translate(-50%,-50%) rotate(360deg);}}
-.hero-fsvg{width:340px;height:420px;filter:drop-shadow(0 8px 40px rgba(45,122,111,.18));position:relative;z-index:1;}
-.hero-species-labels{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;gap:1.5rem;z-index:2;}
-.hero-sp-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--parch-dim);display:flex;align-items:center;gap:5px;opacity:.7;}
-.hero-sp-dot{width:6px;height:6px;border-radius:50%;}
+.srch-btn{
+  position:absolute;right:7px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  color:#fff;background:var(--parchment);border:none;
+  border-radius:2px;padding:8px 18px;cursor:pointer;transition:background .2s;
+}
+.srch-btn:hover{background:var(--gold);}
+.pills{
+  display:flex;flex-wrap:wrap;gap:5px;
+  opacity:0;animation:fadeUp .6s .52s var(--ease) forwards;
+}
+.pill{
+  font-family:var(--mono);font-size:12px;padding:6px 16px;
+  border-radius:2px;border:1px solid #dde3ec;
+  color:var(--parch-dim);cursor:pointer;background:transparent;
+  transition:all .16s var(--ease);
+}
+.pill:hover{border-color:var(--parchment);color:var(--parchment);}
+.hero-stats{
+  display:flex;gap:4rem;
+  margin-top:3rem;padding-top:2.5rem;border-top:1px solid #edf0f5;
+  opacity:0;animation:fadeUp .6s .62s var(--ease) forwards;
+}
+.hstat-n{font-family:var(--serif);font-size:52px;font-weight:300;letter-spacing:-.02em;color:var(--parchment);line-height:1;display:block;}
+.hstat-l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--parch-dim);text-transform:uppercase;margin-top:3px;display:block;}
 
 /* SP TABS */
 .sp-tabs{display:flex;gap:6px;padding:1rem 2rem 0;max-width:1320px;margin:0 auto;border-bottom:1px solid #e5e7eb;}
@@ -299,7 +342,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
       </svg>
       <div>
         <span class="logo-name">GREAT Atlas</span>
-        <span class="logo-sub">Gene Resources · Expression · Annotation Tool</span>
+        <span class="logo-sub">Genetics and genomics of REproductive systems in plAnTs</span>
       </div>
     </div>
     <nav class="hdr-nav">
@@ -318,9 +361,10 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 <!-- HOME -->
 <div class="page on" id="page-home">
   <div class="hero">
-    <div class="hero-left">
+    <div class="hero-content">
       <p class="hero-ey">Transcriptomic Atlas</p>
       <h1 class="hero-title">Floral gene<br>expression<br><em>across species</em></h1>
+      <div class="hero-divider"></div>
       <p class="hero-sub">Three species · Three tissues · Four developmental stages</p>
       <div class="srch-wrap">
         <svg class="srch-ico" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -328,11 +372,11 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
         <button class="srch-btn" onclick="(function(){const q=document.getElementById('heroSearch').value.trim();if(q){resetFilters();runSearch(q);}})()">Search</button>
       </div>
       <div class="pills">
-        <button class="pill" onclick="ts('pollen tube')">pollen tube</button>
-        <button class="pill" onclick="ts('MADS-box')">MADS-box</button>
-        <button class="pill" onclick="ts('ovule')">ovule</button>
+        <button class="pill" onclick="ts('MADS')">MADS</button>
+        <button class="pill" onclick="ts('pollen')">pollen</button>
         <button class="pill" onclick="ts('tapetum')">tapetum</button>
-        <button class="pill" onclick="ts('fertilization')">fertilization</button>
+        <button class="pill" onclick="ts('ovule')">ovule</button>
+        <button class="pill" onclick="ts('auxin')">auxin</button>
         <button class="pill" onclick="ts('gibberellin')">gibberellin</button>
       </div>
       <div class="hero-stats">
@@ -340,27 +384,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
         <div><span class="hstat-n">3</span><span class="hstat-l">species</span></div>
         <div><span class="hstat-n">4</span><span class="hstat-l">dev. stages</span></div>
         <div><span class="hstat-n">3</span><span class="hstat-l">tissues</span></div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-fw">
-        <div class="hero-ring"></div>
-        <div class="hero-ring2"></div>
-        <div class="hero-ring3"></div>
-        <svg class="hero-fsvg" viewBox="-22 -39 136 214" xmlns="http://www.w3.org/2000/svg">
-          <!-- Style/Stigma -->
-          <path fill="#3d8f6e" opacity=".6" d="m 95.670115,28.8163 14.216045,0.768434 1.53687,-3.073738 -1.92109,-6.531695 -5.76326,-1.152652 h -3.07374 l -3.842173,4.226391 z"/>
-          <path fill="#4a9e7a" opacity=".55" d="M 97.206984,130.24967 H 108.7335 l -1.15265,-17.28978 -3.84217,-6.53169 V 75.690814 l 3.45795,-4.226391 0.38422,-34.195342 0.76844,-7.684347 -12.294958,-1.152652 3.842173,6.531695 -1.152652,35.732211 c 1.152654,2e-6 3.842177,5.763262 3.842177,5.763262 l 1.92109,27.27943 -3.84218,6.91591 -2.68952,4.22639 -0.384217,4.99483 z"/>
-          <!-- Anther -->
-          <path fill="#c47a1e" opacity=".75" d="m 87.345982,62.622858 c -3.531875,3.803557 -3.667718,3.803557 -3.667718,3.803557 l -2.173459,10.052259 -1.630098,12.361563 0.815049,10.731466 2.580986,8.829687 1.901778,2.58098 2.852668,-1.76593 2.03762,4.21108 2.445144,1.08673 1.765938,-4.61861 3.124351,3.12435 2.988509,-2.71682 4.21108,-11.003149 v -7.742957 l 2.71683,21.462926 2.44514,0.81505 1.76594,-2.71682 1.22257,-4.75445 c 0,0 0.54337,4.75445 1.08673,5.70534 0.54337,0.95088 2.30931,2.3093 2.30931,2.3093 l 3.53187,-3.66772 1.76594,0.81505 3.12435,-4.89029 2.44514,-10.459783 -0.13584,-10.45978 -0.95089,-8.286324 -2.71682,-11.818197 -2.98852,-3.26019 -1.90177,1.630095 -0.67921,-2.173462 c 0,0 -1.6301,-0.271682 -1.90178,0.271685 -0.27168,0.543364 -3.9394,7.742954 -3.9394,7.742954 l -2.71683,1.358413 c 0,0 -2.17345,1.086731 -2.3093,1.765938 -0.13584,0.679206 -2.03762,6.792068 -2.03762,6.792068 l -4.6186,-7.742957 -2.988511,0.543364 -2.988511,-8.558003 -2.580984,-2.03762 -1.358413,-0.135842 -0.815049,1.222573 z"/>
-          <!-- Ovary -->
-          <path fill="#2a7fa8" opacity=".65" d="m 102.58603,125.63907 c -3.073742,11.52652 -3.073742,11.52652 -3.073742,11.52652 l -3.457956,3.84217 -4.22639,16.13713 -1.53687,9.60543 3.073739,9.60543 5.379042,6.5317 4.226387,1.53687 10.37387,-11.52652 1.92109,-9.60544 -3.07374,-14.21604 -2.68952,-8.837 -3.84217,-4.6106 -2.30531,-5.37905 z"/>
-        </svg>
-        <div class="hero-species-labels">
-          <span class="hero-sp-lbl"><span class="hero-sp-dot" style="background:#c9a84c"></span>S. melongena</span>
-          <span class="hero-sp-lbl"><span class="hero-sp-dot" style="background:#7bc05a"></span>C. intybus</span>
-          <span class="hero-sp-lbl"><span class="hero-sp-dot" style="background:#6496dc"></span>C. scolymus</span>
-        </div>
       </div>
     </div>
   </div>
@@ -1415,5 +1438,7 @@ const C_FULL_BASE = {
 function shortC(c,sp){ return C_SHORT_BASE[c]||c; }
 function fullC(c,sp){  return C_FULL_BASE[c]||c;  }
 </script>
+
+
 </body>
 </html>
