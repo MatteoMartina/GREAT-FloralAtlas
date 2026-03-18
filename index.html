@@ -81,7 +81,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
   opacity:0;animation:fadeUp .65s .12s var(--ease) forwards;
 }
 .hero-title em{font-style:italic;color:var(--gold);}
-.hero-divider{width:40px;height:1px;background:var(--gold-line);margin-bottom:1.2rem;opacity:0;animation:fadeUp .5s .25s var(--ease) forwards;}
+
 .hero-sub{
   font-family:var(--serif);font-size:clamp(18px,1.8vw,22px);
   font-weight:300;font-style:italic;color:var(--parch-dim);
@@ -122,7 +122,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .pill:hover{border-color:var(--parchment);color:var(--parchment);}
 .hero-stats{
   display:flex;gap:4rem;
-  margin-top:3rem;padding-top:2.5rem;border-top:1px solid #edf0f5;
+  margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid #edf0f5;
   opacity:0;animation:fadeUp .6s .62s var(--ease) forwards;
 }
 .hstat-n{font-family:var(--serif);font-size:52px;font-weight:300;letter-spacing:-.02em;color:var(--parchment);line-height:1;display:block;}
@@ -286,16 +286,33 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .lfc-bar{position:absolute;top:0;height:3px;border-radius:2px;}
 
 /* ABOUT */
-.about-wrap{max-width:740px;margin:0 auto;padding:4rem 2rem 8rem;}
-.about-title{font-family:var(--serif);font-size:50px;font-weight:300;font-style:italic;color:var(--parchment);margin-bottom:.5rem;line-height:1.1;}
-.about-title em{color:var(--gold);font-style:normal;}
-.about-lead{font-family:var(--serif);font-size:19px;font-weight:300;color:var(--parch-dim);font-style:italic;margin-bottom:3rem;}
-.about-h2{font-family:var(--serif);font-size:21px;font-weight:400;font-style:italic;color:var(--parchment);margin:2.5rem 0 .7rem;}
-.about-p{color:var(--parch-dim);margin-bottom:1rem;line-height:1.75;}
+.about-wrap{max-width:760px;margin:0 auto;padding:5rem 2rem 8rem;}
+.about-title{font-family:var(--serif);font-size:clamp(48px,5vw,72px);font-weight:300;line-height:.96;letter-spacing:-.02em;color:var(--parchment);margin-bottom:.6rem;}
+.about-title em{color:var(--gold);font-style:italic;}
+.about-lead{font-family:var(--serif);font-size:18px;font-weight:300;color:var(--parch-dim);font-style:italic;margin-bottom:2.5rem;}
+.about-intro{font-size:18px;color:var(--parch-dim);line-height:1.85;margin-bottom:4rem;padding-bottom:3rem;border-bottom:1px solid #edf0f5;}
+.about-section{margin-bottom:3.5rem;}
+.about-block-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:1.2rem;display:flex;align-items:center;gap:10px;}
+.about-block-label::before{content:'';width:24px;height:1px;background:var(--sage);}
+.about-h2{font-family:var(--serif);font-size:28px;font-weight:300;font-style:italic;color:var(--parchment);margin-bottom:1rem;}
+.about-p{color:var(--parch-dim);line-height:1.85;font-size:17px;margin-bottom:.8rem;}
 .about-p strong{color:var(--parchment);font-weight:500;}
-.sp-list{display:flex;flex-direction:column;gap:7px;margin:1rem 0;}
-.sp-item{display:flex;align-items:center;gap:11px;padding:11px 15px;border-radius:var(--r);border:1px solid rgba(255,255,255,.07);font-size:14px;}
-.sp-item.live{border-color:rgba(106,158,127,.2);}
+.tissue-row{display:flex;gap:1.5rem;margin:1.2rem 0;}
+.tissue-dot{display:flex;align-items:center;gap:7px;font-size:16px;color:var(--parchment);font-family:var(--sans);}
+.tissue-dot::before{content:'';width:10px;height:10px;border-radius:50%;background:var(--c);flex-shrink:0;}
+.stage-row{display:flex;gap:8px;margin:1.2rem 0 1.5rem;}
+.stage-pill{font-family:var(--mono);font-size:13px;padding:6px 14px;border-radius:4px;border:1px solid #e5e7eb;color:var(--parch-dim);background:#fafbfc;display:flex;gap:6px;align-items:baseline;}
+.stage-pill strong{color:var(--parchment);font-weight:600;}
+.pipeline-steps{display:flex;flex-direction:column;gap:0;margin:1rem 0;}
+.pipe-step{display:flex;align-items:baseline;gap:1.5rem;padding:10px 0;border-bottom:1px solid #f3f4f6;}
+.pipe-step:last-child{border-bottom:none;}
+.pipe-tool{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--parchment);min-width:180px;}
+.pipe-desc{font-size:16px;color:var(--parch-dim);}
+.sp-list{display:flex;flex-direction:column;gap:0;margin:1rem 0;}
+.sp-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #f3f4f6;font-size:14px;}
+.sp-item:last-child{border-bottom:none;}
+.sp-item.live{}
+.cite-box{background:#fafbfc;border-left:3px solid var(--gold);padding:16px 20px;margin-top:1rem;font-family:var(--mono);font-size:12px;color:var(--parch-dim);line-height:2;}
 .sp-ab{font-family:var(--mono);font-size:10px;min-width:28px;text-align:center;padding:2px 0;color:var(--gold);background:var(--gold-dim);border-radius:4px;}
 .sp-sci{font-style:italic;color:var(--parch-dim);}
 .sp-stat{margin-left:auto;font-family:var(--mono);font-size:10px;}
@@ -364,8 +381,6 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
     <div class="hero-content">
       <p class="hero-ey">Transcriptomic Atlas</p>
       <h1 class="hero-title">Floral gene<br>expression<br><em>across species</em></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-sub">Three species · Three tissues · Four developmental stages</p>
       <div class="srch-wrap">
         <svg class="srch-ico" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         <input class="srch" id="heroSearch" type="text" placeholder="Gene ID, function or GO term — e.g. SMEL5_07g020840, MYB, pollen tube" autocomplete="off" spellcheck="false">
@@ -474,22 +489,65 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 <!-- ABOUT -->
 <div class="page" id="page-about">
   <div class="about-wrap">
+
     <h1 class="about-title"><em>GREAT</em> Atlas</h1>
-    <p class="about-lead">Gene Resources, Expression &amp; Annotation Tool for floral development</p>
-    <p class="about-p">This atlas integrates RNA-seq data across key reproductive developmental stages in three plant species, providing a unified interface to explore differential expression, co-expression modules and functional annotations.</p>
-    <h2 class="about-h2">Experimental design</h2>
-    <p class="about-p">Three floral tissues — <strong>anthers</strong>, <strong>ovaries</strong>, and <strong>style/stigma</strong> — were sampled across four stages: T0 (pre-gametogenesis), T1 (gametogenesis), T2 (anthesis), T3 (post-pollination). Three biological replicates per condition.</p>
-    <h2 class="about-h2">Analysis pipeline</h2>
-    <p class="about-p">Reads quantified with <strong>Salmon</strong> via tximport. Differential expression with <strong>DESeq2</strong>. Functional enrichment with <strong>clusterProfiler / GSEA</strong>. Co-expression networks with <strong>WGCNA</strong>. Orthology with <strong>OrthoFinder</strong> (in progress).</p>
-    <h2 class="about-h2">Species</h2>
-    <div class="sp-list">
-      <div class="sp-item live"><span class="sp-ab">Sm</span><span class="sp-sci">Solanum melongena</span><span class="sp-stat live-s">● Available</span></div>
-      <div class="sp-item live"><span class="sp-ab">Ci</span><span class="sp-sci">Cichorium intybus</span><span class="sp-stat live-s">● Available</span></div>
-      <div class="sp-item live"><span class="sp-ab">Cs</span><span class="sp-sci">Cynara scolymus</span><span class="sp-stat live-s">● Available</span></div>
-      <div class="sp-item"><span class="sp-ab">Sl</span><span class="sp-sci">Solanum lycopersicum</span><span class="sp-stat soon-s">Coming soon</span></div>
+    <p class="about-lead">Genetics and genomics of REproductive systems in plAnTs</p>
+    <p class="about-intro">This atlas integrates RNA-seq data across key reproductive developmental stages in four plant species, providing a unified interface to explore differential expression, co-expression modules and functional annotations.</p>
+
+    <!-- Experimental design -->
+    <div class="about-section">
+      <div class="about-block-label">Experimental design</div>
+      <h2 class="about-h2">Tissues &amp; Stages</h2>
+      <div class="tissue-row">
+        <span class="tissue-dot" style="--c:#f97316">Anther</span>
+        <span class="tissue-dot" style="--c:#059669">Style / Stigma</span>
+        <span class="tissue-dot" style="--c:#0ea5e9">Ovary</span>
+      </div>
+      <div class="stage-row">
+        <div class="stage-pill"><strong>T0</strong> pre-gametogenesis</div>
+        <div class="stage-pill"><strong>T1</strong> gametogenesis</div>
+        <div class="stage-pill"><strong>T2</strong> anthesis</div>
+        <div class="stage-pill"><strong>T3</strong> post-pollination</div>
+      </div>
+      <p class="about-p">Three biological replicates per condition.</p>
     </div>
-    <h2 class="about-h2">Citation</h2>
-    <div class="cite-box">Florida PRIN project — Transcriptomic Atlas of Floral Development<br>Martina M. et al. — <em>Manuscript in preparation, 2025</em></div>
+
+    <!-- Analysis pipeline -->
+    <div class="about-section">
+      <div class="about-block-label">Analysis pipeline</div>
+      <h2 class="about-h2">Methods</h2>
+      <div class="pipeline-steps">
+        <div class="pipe-step"><span class="pipe-tool">Salmon + tximport</span><span class="pipe-desc">Read quantification</span></div>
+        <div class="pipe-step"><span class="pipe-tool">DESeq2</span><span class="pipe-desc">Differential expression</span></div>
+        <div class="pipe-step"><span class="pipe-tool">clusterProfiler / GSEA</span><span class="pipe-desc">Functional enrichment</span></div>
+        <div class="pipe-step"><span class="pipe-tool">WGCNA</span><span class="pipe-desc">Co-expression networks</span></div>
+        <div class="pipe-step"><span class="pipe-tool">OrthoFinder</span><span class="pipe-desc">Orthology inference</span></div>
+      </div>
+    </div>
+
+    <!-- Species -->
+    <div class="about-section">
+      <div class="about-block-label">Species</div>
+      <div class="sp-list">
+        <div class="sp-item live"><span class="sp-ab" style="background:rgba(201,168,76,.15);color:#c9a84c;border:1px solid rgba(201,168,76,.3);font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:4px;">Sm</span><span class="sp-sci" style="font-style:italic;font-family:var(--serif);font-size:15px">Solanum melongena</span><span class="sp-stat live-s" style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--sage)">● Available</span></div>
+        <div class="sp-item live"><span class="sp-ab" style="background:rgba(123,192,90,.15);color:#7bc05a;border:1px solid rgba(123,192,90,.3);font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:4px;">Ci</span><span class="sp-sci" style="font-style:italic;font-family:var(--serif);font-size:15px">Cichorium intybus</span><span class="sp-stat live-s" style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--sage)">● Available</span></div>
+        <div class="sp-item live"><span class="sp-ab" style="background:rgba(100,150,220,.15);color:#6496dc;border:1px solid rgba(100,150,220,.3);font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:4px;">Cs</span><span class="sp-sci" style="font-style:italic;font-family:var(--serif);font-size:15px">Cynara scolymus</span><span class="sp-stat live-s" style="margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--sage)">● Available</span></div>
+        <div class="sp-item"><span class="sp-ab" style="background:#f3f4f6;color:#9ca3af;border:1px solid #e5e7eb;font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:4px;">Sl</span><span class="sp-sci" style="font-style:italic;font-family:var(--serif);font-size:15px;opacity:.4">Solanum lycopersicum</span><span style="margin-left:auto;font-family:var(--mono);font-size:11px;opacity:.4">Coming soon</span></div>
+      </div>
+    </div>
+
+    <!-- Citation -->
+    <div class="about-section">
+      <div class="about-block-label">Citation</div>
+      <h2 class="about-h2">Reference</h2>
+      <div class="cite-box">
+        Martina M. et al. — <em>Manuscript in preparation</em><br><br>
+        This work was partially supported by the <strong>"GREAT: Genetics and genomics of REproductive systems in plAnTs"</strong> project, in the framework of the PRIN 2022 (Research Projects of National Relevance) funding of the Italian Ministry of University and Research (MUR).<br>
+        Grant code: <strong>2022EZMYWP</strong> — PI: Prof. Gianni Barcaccia (Università di Padova)<br>
+        Research Units: Univ. Padova · Univ. della Tuscia · Univ. di Torino
+      </div>
+    </div>
+
   </div>
 </div>
 
