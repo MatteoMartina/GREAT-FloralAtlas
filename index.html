@@ -49,32 +49,41 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
 /* HERO */
-.hero{min-height:calc(100vh - 58px);display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:center;padding:5rem 2rem 4rem;max-width:1320px;margin:0 auto;}
+.hero{min-height:calc(100vh - 58px);display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;max-width:100%;margin:0;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 4rem calc(50vw - 660px + 2rem);max-width:760px;margin-left:auto;}
+@media(max-width:1100px){.hero-left{padding:4rem 2rem;max-width:100%;}}
+@media(max-width:768px){.hero{grid-template-columns:1fr;}.hero-right{display:none;}}
 .hero-ey{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;font-weight:600;}
 .hero-ey::before{content:'';width:28px;height:1px;background:var(--sage);}
-.hero-title{font-family:var(--serif);font-size:clamp(42px,5.5vw,70px);font-weight:300;line-height:1.08;color:var(--parchment);margin-bottom:.5rem;}
+.hero-title{font-family:var(--serif);font-size:clamp(48px,5.5vw,76px);font-weight:300;line-height:1.05;color:var(--parchment);margin-bottom:.6rem;}
 .hero-title em{font-style:italic;color:var(--gold);}
-.hero-sub{font-family:var(--serif);font-size:clamp(15px,1.8vw,20px);font-weight:300;font-style:italic;color:var(--parch-dim);margin-bottom:2.5rem;}
+.hero-sub{font-family:var(--serif);font-size:clamp(15px,1.6vw,19px);font-weight:300;font-style:italic;color:var(--parch-dim);margin-bottom:2.5rem;}
 .srch-wrap{position:relative;max-width:540px;margin-bottom:1.5rem;}
 .srch-ico{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--parch-dim);pointer-events:none;}
-.srch{width:100%;background:#ffffff;border:2px solid #e5e7eb;border-radius:var(--r-lg);color:var(--parchment);font-family:var(--sans);font-size:15px;padding:13px 48px 13px 44px;outline:none;transition:border-color .2s,box-shadow .2s;}
+.srch{width:100%;background:#ffffff;border:2px solid #e5e7eb;border-radius:var(--r-lg);color:var(--parchment);font-family:var(--sans);font-size:15px;padding:13px 90px 13px 44px;outline:none;transition:border-color .2s,box-shadow .2s;}
 .srch::placeholder{color:var(--parch-dim);}
 .srch:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim);}
-.srch-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;color:#fff;background:var(--gold);border:none;border-radius:6px;padding:4px 12px;cursor:pointer;transition:background .18s;}.srch-btn:hover{background:var(--sage);}
+.srch-btn{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;color:#fff;background:var(--gold);border:none;border-radius:8px;padding:6px 14px;cursor:pointer;transition:background .18s;letter-spacing:.05em;}
+.srch-btn:hover{background:var(--sage);}
 .pills{display:flex;flex-wrap:wrap;gap:5px;}
 .pill{font-family:var(--mono);font-size:10px;padding:4px 12px;border-radius:20px;border:1px solid #e5e7eb;color:var(--parch-dim);cursor:pointer;transition:all .18s var(--ease);background:transparent;}
 .pill:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-dim);}
-.hero-stats{display:flex;gap:2rem;margin-top:3rem;}
-.hstat-n{font-family:var(--serif);font-size:30px;font-weight:300;color:var(--parchment);line-height:1;display:block;}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid #e5e7eb;}
+.hstat-n{font-family:var(--serif);font-size:34px;font-weight:300;color:var(--parchment);line-height:1;display:block;}
 .hstat-l{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--parch-dim);text-transform:uppercase;}
 
-/* hero flower */
-.hero-right{display:flex;align-items:center;justify-content:center;}
-.hero-fw{position:relative;width:300px;height:360px;}
-.hero-ring{position:absolute;inset:-40px;border-radius:50%;border:1px solid rgba(217,119,6,.12);animation:ss 40s linear infinite;}
-.hero-ring2{position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(45,122,111,.12);animation:ss 28s linear infinite reverse;}
-@keyframes ss{to{transform:rotate(360deg);}}
-.hero-fsvg{width:100%;height:100%;filter:drop-shadow(0 0 25px rgba(45,122,111,.15));}
+/* hero right — botanical illustration panel */
+.hero-right{position:relative;overflow:hidden;background:linear-gradient(135deg,#f8fdf8 0%,#f0f7f4 40%,#faf8f2 100%);}
+.hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 60% 50%,rgba(45,122,111,.06) 0%,transparent 70%);}
+.hero-fw{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.hero-ring{position:absolute;width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(217,119,6,.1);animation:ss 40s linear infinite;}
+.hero-ring2{position:absolute;width:380px;height:380px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(45,122,111,.1);animation:ss 28s linear infinite reverse;}
+.hero-ring3{position:absolute;width:260px;height:260px;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(217,119,6,.06);animation:ss 60s linear infinite;}
+@keyframes ss{to{transform:translate(-50%,-50%) rotate(360deg);}}
+.hero-fsvg{width:340px;height:420px;filter:drop-shadow(0 8px 40px rgba(45,122,111,.18));position:relative;z-index:1;}
+.hero-species-labels{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;gap:1.5rem;z-index:2;}
+.hero-sp-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--parch-dim);display:flex;align-items:center;gap:5px;opacity:.7;}
+.hero-sp-dot{width:6px;height:6px;border-radius:50%;}
 
 /* SP TABS */
 .sp-tabs{display:flex;gap:6px;padding:1rem 2rem 0;max-width:1320px;margin:0 auto;border-bottom:1px solid #e5e7eb;}
@@ -309,13 +318,13 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
 <!-- HOME -->
 <div class="page on" id="page-home">
   <div class="hero">
-    <div>
+    <div class="hero-left">
       <p class="hero-ey">Transcriptomic Atlas</p>
       <h1 class="hero-title">Floral gene<br>expression<br><em>across species</em></h1>
       <p class="hero-sub">Three species · Three tissues · Four developmental stages</p>
       <div class="srch-wrap">
         <svg class="srch-ico" viewBox="0 0 20 20" fill="none"><circle cx="8.5" cy="8.5" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M13 13L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        <input class="srch" id="heroSearch" type="text" placeholder="Gene ID or GO term — e.g. SMEL5_07g020840 or &quot;pollen tube&quot;" autocomplete="off" spellcheck="false">
+        <input class="srch" id="heroSearch" type="text" placeholder="Gene ID, function or GO term — e.g. SMEL5_07g020840, MYB, pollen tube" autocomplete="off" spellcheck="false">
         <button class="srch-btn" onclick="(function(){const q=document.getElementById('heroSearch').value.trim();if(q){resetFilters();runSearch(q);}})()">Search</button>
       </div>
       <div class="pills">
@@ -335,13 +344,23 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
     </div>
     <div class="hero-right">
       <div class="hero-fw">
-        <div class="hero-ring"></div><div class="hero-ring2"></div>
-        <svg class="hero-fsvg" viewBox="-22 -39 136 174" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#5a9e78" opacity=".55" d="m 95.670115,28.8163 14.216045,0.768434 1.53687,-3.073738 -1.92109,-6.531695 -5.76326,-1.152652 h -3.07374 l -3.842173,4.226391 z"/>
-          <path fill="#6a9e7f" opacity=".5"  d="M 97.206984,130.24967 H 108.7335 l -1.15265,-17.28978 -3.84217,-6.53169 V 75.690814 l 3.45795,-4.226391 0.38422,-34.195342 0.76844,-7.684347 -12.294958,-1.152652 3.842173,6.531695 -1.152652,35.732211 c 1.152654,2e-6 3.842177,5.763262 3.842177,5.763262 l 1.92109,27.27943 -3.84218,6.91591 -2.68952,4.22639 -0.384217,4.99483 z"/>
-          <path fill="#c47a1e" opacity=".7"  d="m 87.345982,62.622858 c -3.531875,3.803557 -3.667718,3.803557 -3.667718,3.803557 l -2.173459,10.052259 -1.630098,12.361563 0.815049,10.731466 2.580986,8.829687 1.901778,2.58098 2.852668,-1.76593 2.03762,4.21108 2.445144,1.08673 1.765938,-4.61861 3.124351,3.12435 2.988509,-2.71682 4.21108,-11.003149 v -7.742957 l 2.71683,21.462926 2.44514,0.81505 1.76594,-2.71682 1.22257,-4.75445 c 0,0 0.54337,4.75445 1.08673,5.70534 0.54337,0.95088 2.30931,2.3093 2.30931,2.3093 l 3.53187,-3.66772 1.76594,0.81505 3.12435,-4.89029 2.44514,-10.459783 -0.13584,-10.45978 -0.95089,-8.286324 -2.71682,-11.818197 -2.98852,-3.26019 -1.90177,1.630095 -0.67921,-2.173462 c 0,0 -1.6301,-0.271682 -1.90178,0.271685 -0.27168,0.543364 -3.9394,7.742954 -3.9394,7.742954 l -2.71683,1.358413 c 0,0 -2.17345,1.086731 -2.3093,1.765938 -0.13584,0.679206 -2.03762,6.792068 -2.03762,6.792068 l -4.6186,-7.742957 -2.988511,0.543364 -2.988511,-8.558003 -2.580984,-2.03762 -1.358413,-0.135842 -0.815049,1.222573 z"/>
-          <path fill="#4a8fa8" opacity=".65" d="m 102.58603,125.63907 c -3.073742,11.52652 -3.073742,11.52652 -3.073742,11.52652 l -3.457956,3.84217 -4.22639,16.13713 -1.53687,9.60543 3.073739,9.60543 5.379042,6.5317 4.226387,1.53687 10.37387,-11.52652 1.92109,-9.60544 -3.07374,-14.21604 -2.68952,-8.837 -3.84217,-4.6106 -2.30531,-5.37905 z"/>
+        <div class="hero-ring"></div>
+        <div class="hero-ring2"></div>
+        <div class="hero-ring3"></div>
+        <svg class="hero-fsvg" viewBox="-22 -39 136 214" xmlns="http://www.w3.org/2000/svg">
+          <!-- Style/Stigma -->
+          <path fill="#3d8f6e" opacity=".6" d="m 95.670115,28.8163 14.216045,0.768434 1.53687,-3.073738 -1.92109,-6.531695 -5.76326,-1.152652 h -3.07374 l -3.842173,4.226391 z"/>
+          <path fill="#4a9e7a" opacity=".55" d="M 97.206984,130.24967 H 108.7335 l -1.15265,-17.28978 -3.84217,-6.53169 V 75.690814 l 3.45795,-4.226391 0.38422,-34.195342 0.76844,-7.684347 -12.294958,-1.152652 3.842173,6.531695 -1.152652,35.732211 c 1.152654,2e-6 3.842177,5.763262 3.842177,5.763262 l 1.92109,27.27943 -3.84218,6.91591 -2.68952,4.22639 -0.384217,4.99483 z"/>
+          <!-- Anther -->
+          <path fill="#c47a1e" opacity=".75" d="m 87.345982,62.622858 c -3.531875,3.803557 -3.667718,3.803557 -3.667718,3.803557 l -2.173459,10.052259 -1.630098,12.361563 0.815049,10.731466 2.580986,8.829687 1.901778,2.58098 2.852668,-1.76593 2.03762,4.21108 2.445144,1.08673 1.765938,-4.61861 3.124351,3.12435 2.988509,-2.71682 4.21108,-11.003149 v -7.742957 l 2.71683,21.462926 2.44514,0.81505 1.76594,-2.71682 1.22257,-4.75445 c 0,0 0.54337,4.75445 1.08673,5.70534 0.54337,0.95088 2.30931,2.3093 2.30931,2.3093 l 3.53187,-3.66772 1.76594,0.81505 3.12435,-4.89029 2.44514,-10.459783 -0.13584,-10.45978 -0.95089,-8.286324 -2.71682,-11.818197 -2.98852,-3.26019 -1.90177,1.630095 -0.67921,-2.173462 c 0,0 -1.6301,-0.271682 -1.90178,0.271685 -0.27168,0.543364 -3.9394,7.742954 -3.9394,7.742954 l -2.71683,1.358413 c 0,0 -2.17345,1.086731 -2.3093,1.765938 -0.13584,0.679206 -2.03762,6.792068 -2.03762,6.792068 l -4.6186,-7.742957 -2.988511,0.543364 -2.988511,-8.558003 -2.580984,-2.03762 -1.358413,-0.135842 -0.815049,1.222573 z"/>
+          <!-- Ovary -->
+          <path fill="#2a7fa8" opacity=".65" d="m 102.58603,125.63907 c -3.073742,11.52652 -3.073742,11.52652 -3.073742,11.52652 l -3.457956,3.84217 -4.22639,16.13713 -1.53687,9.60543 3.073739,9.60543 5.379042,6.5317 4.226387,1.53687 10.37387,-11.52652 1.92109,-9.60544 -3.07374,-14.21604 -2.68952,-8.837 -3.84217,-4.6106 -2.30531,-5.37905 z"/>
         </svg>
+        <div class="hero-species-labels">
+          <span class="hero-sp-lbl"><span class="hero-sp-dot" style="background:#c9a84c"></span>S. melongena</span>
+          <span class="hero-sp-lbl"><span class="hero-sp-dot" style="background:#7bc05a"></span>C. intybus</span>
+          <span class="hero-sp-lbl"><span class="hero-sp-dot" style="background:#6496dc"></span>C. scolymus</span>
+        </div>
       </div>
     </div>
   </div>
@@ -409,10 +428,10 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
         <span class="flbl">Stage</span>
         <div class="ftw" id="stageF">
           <button class="ftgl on" data-v="all">All</button>
-          <button class="ftgl" data-v="F0">F0</button>
-          <button class="ftgl" data-v="F1">F1</button>
-          <button class="ftgl" data-v="F2">F2</button>
-          <button class="ftgl" data-v="F3">F3</button>
+          <button class="ftgl" data-v="T0">T0</button>
+          <button class="ftgl" data-v="T1">T1</button>
+          <button class="ftgl" data-v="T2">T2</button>
+          <button class="ftgl" data-v="T3">T3</button>
         </div>
       </div>
       <div class="fgrp">
@@ -436,7 +455,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opa
     <p class="about-lead">Gene Resources, Expression &amp; Annotation Tool for floral development</p>
     <p class="about-p">This atlas integrates RNA-seq data across key reproductive developmental stages in three plant species, providing a unified interface to explore differential expression, co-expression modules and functional annotations.</p>
     <h2 class="about-h2">Experimental design</h2>
-    <p class="about-p">Three floral tissues — <strong>anthers</strong>, <strong>ovaries</strong>, and <strong>style/stigma</strong> — were sampled across four stages: F0 (pre-gametogenesis), F1 (gametogenesis), F2 (anthesis), F3 (post-pollination). Three biological replicates per condition.</p>
+    <p class="about-p">Three floral tissues — <strong>anthers</strong>, <strong>ovaries</strong>, and <strong>style/stigma</strong> — were sampled across four stages: T0 (pre-gametogenesis), T1 (gametogenesis), T2 (anthesis), T3 (post-pollination). Three biological replicates per condition.</p>
     <h2 class="about-h2">Analysis pipeline</h2>
     <p class="about-p">Reads quantified with <strong>Salmon</strong> via tximport. Differential expression with <strong>DESeq2</strong>. Functional enrichment with <strong>clusterProfiler / GSEA</strong>. Co-expression networks with <strong>WGCNA</strong>. Orthology with <strong>OrthoFinder</strong> (in progress).</p>
     <h2 class="about-h2">Species</h2>
@@ -525,6 +544,7 @@ const ORTHOLOGS = {
 ═══════════════════════════════════════════ */
 const ATLAS = { smel:{}, cic:{}, cyn:{}, slyc:{} };
 const SIDX  = { smel:{}, cic:{}, cyn:{}, slyc:{} };
+const FIDX  = { smel:{}, cic:{}, cyn:{} };
 let dataReady = false;
 
 // Strip version suffix (.1 .2 etc) from gene IDs for consistent lookup
@@ -605,9 +625,23 @@ async function loadData() {
     });
     console.log(`CIC remap: ${cicRemapped} → KAI3, ${cicMissing} kept original key`);
 
-    SIDX.smel = (smi && !Array.isArray(smi) && typeof smi === 'object' && Object.keys(smi).length) ? smi : buildIdx(ATLAS.smel,'smel');
-    SIDX.cic  = (cii && !Array.isArray(cii) && typeof cii === 'object' && Object.keys(cii).length) ? cii : buildIdx(ATLAS.cic,'cic');
-    SIDX.cyn  = (cyi && !Array.isArray(cyi) && typeof cyi === 'object' && Object.keys(cyi).length) ? cyi : buildIdx(ATLAS.cyn,'cyn');
+    // Use precompiled index if available, rebuild only if missing
+    SIDX.smel = (smi && !Array.isArray(smi) && typeof smi==='object' && Object.keys(smi).length) ? smi : buildIdx(ATLAS.smel,'smel');
+    SIDX.cic  = (cii && !Array.isArray(cii) && typeof cii==='object' && Object.keys(cii).length) ? cii : buildIdx(ATLAS.cic,'cic');
+    SIDX.cyn  = (cyi && !Array.isArray(cyi) && typeof cyi==='object' && Object.keys(cyi).length) ? cyi : buildIdx(ATLAS.cyn,'cyn');
+
+    // Build lightweight gff_func index: word -> [geneId, ...]
+    FIDX.smel = {}; FIDX.cic = {}; FIDX.cyn = {};
+    ['smel','cic','cyn'].forEach(sp => {
+      Object.entries(ATLAS[sp]).forEach(([id, g]) => {
+        if(!g || !g.gff_func) return;
+        g.gff_func.toLowerCase().split(/[^a-z0-9]+/).filter(w=>w.length>=3).forEach(w => {
+          if(!FIDX[sp][w]) FIDX[sp][w] = [];
+          FIDX[sp][w].push(id);
+        });
+      });
+    });
+    console.log('FIDX built — smel:', Object.keys(FIDX.smel).length, 'cic:', Object.keys(FIDX.cic).length, 'cyn:', Object.keys(FIDX.cyn).length);
 
     const nSm = Object.keys(ATLAS.smel).length;
     const nCi = Object.keys(ATLAS.cic).length;
@@ -641,6 +675,7 @@ function buildIdx(atlas, sp) {
       g.description || '',
       g.product || '',
       g.func || '',
+      g.gff_func || '',
       g.search_text || ''
     ].join(' ').toLowerCase();
     txt.split(/[^a-z0-9_+.:-]+/).filter(w=>w.length>=3).forEach(w=>add(w,gid));
@@ -762,7 +797,7 @@ function runSearch(q) {
     // direct ID match
     Object.keys(atlas).forEach(id=>{ if(id.toLowerCase().includes(ql)) spHits.add(id); });
     
-    // token search
+    // token search in precompiled index
     const tokens = ql.split(/\s+/).filter(t=>t.length>=3);
     const sets = tokens.map(t=>{
       const s=new Set();
@@ -774,6 +809,13 @@ function runSearch(q) {
       const inter=new Set([...sets[0]].filter(id=>sets.slice(1).every(s=>s.has(id))));
       if(inter.size) inter.forEach(id=>spHits.add(id));
       else sets.forEach(s=>s.forEach(id=>spHits.add(id)));
+    }
+
+    // also search gff_func index (lightweight, built at load)
+    if(typeof FIDX !== 'undefined' && FIDX[sp]) {
+      tokens.forEach(t => {
+        Object.entries(FIDX[sp]).forEach(([k,ids])=>{ if(k.includes(t)) ids.forEach(id=>spHits.add(id)); });
+      });
     }
     
     [...spHits].forEach(id=>{ if(atlas[id]) hits.push({...atlas[id], _sp:sp}); });
@@ -1139,7 +1181,7 @@ function buildDrawer(g){
       
       const getStageLabel = (s) => {
         // Convert "F1_vs_F2" to "T1/T2"
-        return s.replace(/F(\d+)_vs_F(\d+)/, 'T$1/T$2');
+        return s.replace(/F(\d+)_vs_F(\d+)/, 'T$2/T$1');
       };
       
       let html = `<table style="width:100%;font-size:9px;border-collapse:collapse;margin:6px 0">
@@ -1195,7 +1237,7 @@ function buildDrawer(g){
         const pct=Math.round((w.kme||0)*100);
         body+=`<div class="sp-mrow"><span class="sp-mdot" style="background:${c}"></span><span class="sp-mname">${w.module}</span></div>`;
         body+=`<div class="sp-krow"><span class="sp-klbl">kME</span><div class="sp-ktrk"><div class="sp-kfil" style="width:${pct}%;background:${c}"></div></div><span class="sp-kval">${(w.kme||0).toFixed(2)}</span></div>`;
-        if(w.bestStage) body+=`<div class="sp-stg">peak <span class="spl s-${w.bestStage}">${w.bestStage}</span></div>`;
+        if(w.bestStage) body+=`<div class="sp-stg">peak <span class="spl s-${w.bestStage}">${w.bestStage.replace(/^F/,'T')}</span></div>`;
       });
       const degs=Object.entries(d.deseq||{}).slice(0,3);
       if(degs.length){
@@ -1231,7 +1273,7 @@ function buildDrawer(g){
         <div class="wp-tiss" style="color:${tcols[t]||'var(--parch-dim)'}"><span style="width:6px;height:6px;border-radius:50%;background:currentColor;display:inline-block"></span>${tnames2[t]||t}</div>
         <div class="wp-mod"><span class="wp-mdot" style="background:${c}"></span>${w.module}</div>
         <div class="krow"><span class="klbl">kME</span><div class="ktrk"><div class="kfil" style="width:${pct}%;background:${c}"></div></div><span class="kval">${(w.kme||0).toFixed(3)}</span></div>
-        ${w.bestStage?`<div style="font-family:var(--mono);font-size:9.5px;color:var(--parch-dim);margin-bottom:9px">Peak <span class="spl s-${w.bestStage}">${w.bestStage}</span></div>`:''}
+        ${w.bestStage?`<div style="font-family:var(--mono);font-size:9.5px;color:var(--parch-dim);margin-bottom:9px">Peak <span class="spl s-${w.bestStage}">${w.bestStage.replace(/^F/,'T')}</span></div>`:''}
         <div style="font-family:var(--mono);font-size:9px;color:var(--parch-dim);margin-bottom:4px">Hub genes</div>
         <div class="hub-list">${hubs||'<span style="opacity:.4;font-size:9px">—</span>'}</div>
       </div>`;
@@ -1347,28 +1389,28 @@ function hexRgb(h){ try{const r=parseInt(h.slice(1,3),16),g=parseInt(h.slice(3,5
 function fmtP(p){ if(p==null)return'—'; if(p<1e-15)return'&lt;10⁻¹⁵'; if(p<0.001){const e=Math.floor(Math.log10(p)),m=(p/Math.pow(10,e)).toFixed(1);return`${m}×10<sup>${e}</sup>`;} return p.toFixed(4); }
 
 const C_SHORT_BASE = {
-  antera_F2_vs_F1:'Ant F2/F1',antera_F3_vs_F1:'Ant F3/F1',antera_F3_vs_F2:'Ant F3/F2',
-  ovaio_F2_vs_F1:'Ov F2/F1',ovaio_F3_vs_F1:'Ov F3/F1',ovaio_F3_vs_F2:'Ov F3/F2',
-  stami_F2_vs_F1:'Sty F2/F1',stami_F3_vs_F1:'Sty F3/F1',
-  ovaio_vs_antera_F1:'Ov/Ant F1',stami_vs_antera_F1:'Sty/Ant F1',
-  ovaio_vs_antera_F2:'Ov/Ant F2',ovaio_vs_antera_F3:'Ov/Ant F3',
-  stami_vs_antera_F2:'Sty/Ant F2',stami_vs_antera_F3:'Sty/Ant F3',
-  F0_vs_F1_pooled:'F0/F1',
-  stigma_vs_ovaio_F2:'Stig/Ov F2',stigma_vs_ovaio_F3:'Stig/Ov F3',
-  stigma_vs_antera_F2:'Stig/Ant F2',stigma_vs_antera_F3:'Stig/Ant F3',
-  ovaio_vs_antera_F2:'Ov/Ant F2',stigma_stilo_F3_vs_F2:'Stig F3/F2'
+  antera_F2_vs_F1:'Ant T2/T1',antera_F3_vs_F1:'Ant T3/T1',antera_F3_vs_F2:'Ant T3/T2',
+  ovaio_F2_vs_F1:'Ov T2/T1',ovaio_F3_vs_F1:'Ov T3/T1',ovaio_F3_vs_F2:'Ov T3/T2',
+  stami_F2_vs_F1:'Sty T2/T1',stami_F3_vs_F1:'Sty T3/T1',
+  ovaio_vs_antera_F1:'Ov/Ant T1',stami_vs_antera_F1:'Sty/Ant T1',
+  ovaio_vs_antera_F2:'Ov/Ant T2',ovaio_vs_antera_F3:'Ov/Ant T3',
+  stami_vs_antera_F2:'Sty/Ant T2',stami_vs_antera_F3:'Sty/Ant T3',
+  F0_vs_F1_pooled:'T0/T1',
+  stigma_vs_ovaio_F2:'Stig/Ov T2',stigma_vs_ovaio_F3:'Stig/Ov T3',
+  stigma_vs_antera_F2:'Stig/Ant T2',stigma_vs_antera_F3:'Stig/Ant T3',
+  ovaio_vs_antera_F2:'Ov/Ant T2',stigma_stilo_F3_vs_F2:'Stig T3/T2'
 };
 const C_FULL_BASE = {
-  antera_F2_vs_F1:'Anther: F2 vs F1',antera_F3_vs_F1:'Anther: F3 vs F1',antera_F3_vs_F2:'Anther: F3 vs F2',
-  ovaio_F2_vs_F1:'Ovary: F2 vs F1',ovaio_F3_vs_F1:'Ovary: F3 vs F1',ovaio_F3_vs_F2:'Ovary: F3 vs F2',
-  stami_F2_vs_F1:'Style: F2 vs F1',stami_F3_vs_F1:'Style: F3 vs F1',
-  ovaio_vs_antera_F1:'Ovary vs Anther — F1',stami_vs_antera_F1:'Style vs Anther — F1',
-  ovaio_vs_antera_F2:'Ovary vs Anther — F2',ovaio_vs_antera_F3:'Ovary vs Anther — F3',
-  stami_vs_antera_F2:'Style vs Anther — F2',stami_vs_antera_F3:'Style vs Anther — F3',
-  F0_vs_F1_pooled:'F0 (pre-gametogenesis) vs F1 pooled',
-  stigma_vs_ovaio_F2:'Stigma vs Ovary — F2',stigma_vs_ovaio_F3:'Stigma vs Ovary — F3',
-  stigma_vs_antera_F2:'Stigma vs Anther — F2',stigma_vs_antera_F3:'Stigma vs Anther — F3',
-  stigma_stilo_F3_vs_F2:'Style/Stigma: F3 vs F2'
+  antera_F2_vs_F1:'Anther: T2 vs T1',antera_F3_vs_F1:'Anther: T3 vs T1',antera_F3_vs_F2:'Anther: T3 vs T2',
+  ovaio_F2_vs_F1:'Ovary: T2 vs T1',ovaio_F3_vs_F1:'Ovary: T3 vs T1',ovaio_F3_vs_F2:'Ovary: T3 vs T2',
+  stami_F2_vs_F1:'Style: T2 vs T1',stami_F3_vs_F1:'Style: T3 vs T1',
+  ovaio_vs_antera_F1:'Ovary vs Anther — T1',stami_vs_antera_F1:'Style vs Anther — T1',
+  ovaio_vs_antera_F2:'Ovary vs Anther — T2',ovaio_vs_antera_F3:'Ovary vs Anther — T3',
+  stami_vs_antera_F2:'Style vs Anther — T2',stami_vs_antera_F3:'Style vs Anther — T3',
+  F0_vs_F1_pooled:'T0 (pre-gametogenesis) vs T1 pooled',
+  stigma_vs_ovaio_F2:'Stigma vs Ovary — T2',stigma_vs_ovaio_F3:'Stigma vs Ovary — T3',
+  stigma_vs_antera_F2:'Stigma vs Anther — T2',stigma_vs_antera_F3:'Stigma vs Anther — T3',
+  stigma_stilo_F3_vs_F2:'Style/Stigma: T3 vs T2'
 };
 function shortC(c,sp){ return C_SHORT_BASE[c]||c; }
 function fullC(c,sp){  return C_FULL_BASE[c]||c;  }
